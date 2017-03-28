@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html id="ng-app"  data-ng-app="currencyConverterApp">
+<head>
+	<title>Currency Converter</title>
+	<meta name="viewport" content="width=device-width">
+	<link href="assets/css/general.css" rel="stylesheet">	
+	<script type="text/javascript" src="assets/js/angular.js"></script>	
+	<script type="text/javascript" src="app/app.js"></script>
+	<script type="text/javascript" src="app/controller/curConvController.js"></script>	
+	<script type="text/javascript" src="app/factory/dataServices.js"></script>	
+	<script type="text/javascript" src="app/directive/decimalNumber.js"></script>	
+</head>
+<body>
+	<div data-ng-controller="curConvController" id="mainFormDiv" class="main-div">
+	<h2>Currency Converter</h2>
+	<form name="curForm" >
+		<div class="row" data-ng-show="showErrorMsg">
+			<span class="error-msg">{{errorMsg}}</span>
+		</div>
+		<div class="row">		
+			<div class="label">Type in amount and select currency:</div>
+			<div>
+				<input type="text" class="input-field" placeholder="0.00" name="initAmt" data-ng-model="initAmt " decimal-number data-ng-change="convertAmt()" autofocus/>
+				<select id="dropdown1" class="select-field"  data-ng-model="initCurr" data-ng-change="getCurrencyRates()">
+					<option value="CAD">CAD</option>
+					<option value="USD">USD</option>
+					<option value="EUR">EUR</option>
+				</select><br/>
+				<!--<span class="error-msg" data-ng-show="!curForm.initAmt.$valid">Enter a number with two decimal places</span>-->
+			</div>		
+		</div>
+		<div class="row">
+			<div class="label">Converted Amount:</div>
+			<div>
+				<input type="text" class="input-field" data-ng-model="convAmt" disabled>
+				<select id="dropdown1" class="select-field"  data-ng-model="convCurr" data-ng-change="convertAmt()">
+					<option value="CAD">CAD</option>
+					<option value="USD">USD</option>
+					<option value="EUR">EUR</option>
+				</select>
+			</div>		
+		</div>
+		<div class="row disclaimer-row">
+			<a href="" data-ng-click="showDisclaimerInfo(true)" class="elem-right">Disclaimer</a>
+		</div>
+		<div class="row alert-info" ng-show="disclaimerInfo">
+			<div class="disclaimer-info">Conversion rates are subject to change based on Fixer API:<br/>
+			 1 {{initCurr}} = {{equivAmt}} {{convCurr}} </div>
+			 <div  class="close " data-ng-click="showDisclaimerInfo(false)"><b></b>
+			 </div>
+
+		</div>
+		</form>
+	</div>
+</body>
+
+</html>
