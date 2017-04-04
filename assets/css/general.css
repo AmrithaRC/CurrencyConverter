@@ -30,15 +30,22 @@
 		font-size: 15px;
 		padding: 10px 15px;
 	}
+	.alert-error{
+		color: #a94442 !important;
+   		background-color: #f2dede;
+   		border-color:#ebccd1;
+   		border:1px solid transparent;
+    	border-radius: 7px;
+	    width: 80% !important;
+		font-size: 15px;
+		padding: 10px 15px;
+	}
 	.disclaimer-info{
 		float:left;
 		width: 81%;
    		padding: 5px
 	}
-	.error-msg{
-		color:red;
-	}
-	
+		
 	.elem-right{
 		float:right;
 	}

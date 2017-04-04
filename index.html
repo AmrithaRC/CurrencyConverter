@@ -14,8 +14,8 @@
 	<div data-ng-controller="curConvController" id="mainFormDiv" class="main-div">
 	<h2>Currency Converter</h2>
 	<form name="curForm" >
-		<div class="row" data-ng-show="showErrorMsg">
-			<span class="error-msg" data-ng-bind="errorMsg"></span>
+		<div class="row alert-error" data-ng-show="showErrorMsg">
+			<span class="error-msg" data-ng-bind="errorMsg">Application encountered a problem. Fixer Rate API is down</span>
 		</div>
 		<div class="row">		
 			<div class="label">Type in amount and select currency:</div>
