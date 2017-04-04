@@ -80,40 +80,8 @@
 		background-color: #d3d4d6;
 		border: 1px solid #999999;	
 		min-width: 60px;
-	}	
+	}		
 	
-	.close {
-	    display: block;
-	    position: relative;
-	    float:right;
-	    width: 20px;
-	    height: 20px;
-	    transition: transform .25s ease-in-out;
-	}
-
-	.close:before {
-	    content: "";
-	    display: block;
-	    margin: auto;	 
-	    position: relative;
-	    margin-top: 10px;
-	    width: 15px;
-	    height: 0;
-	    border-top: 1px solid rgba(0,0,0,0.5);
-	    transform: rotate(45deg);
-	    transform-origin: center;
-	}
-	.close:after {
-	    content: "";
-	    position: relative;
-	    display: block;
-	    margin: auto;
-	    width: 15px;
-	    height: 0;
-	    border-top: 1px solid rgba(0,0,0,0.5);
-	    transform: rotate(-45deg);
-	    transform-origin: center;
-	}
 
 	@media screen and (max-width: 520px) {
     	.main-div{

@@ -26,7 +26,6 @@
 					<option value="USD">USD</option>
 					<option value="EUR">EUR</option>
 				</select><br/>
-				<!--<span class="error-msg" data-ng-show="!curForm.initAmt.$valid">Enter a number with two decimal places</span>-->
 			</div>		
 		</div>
 		<div class="row">
@@ -46,9 +45,6 @@
 		<div class="row alert-info" ng-show="disclaimerInfo">
 			<div class="disclaimer-info">Conversion rates are subject to change based on Fixer API:<br/>
 			 1 {{initCurr}} = {{equivAmt}} {{convCurr}} </div>
-			<!-- <div  class="close " data-ng-click="showDisclaimerInfo(false)"><b></b>
-			 </div>-->
-
 		</div>
 		</form>
 	</div>
