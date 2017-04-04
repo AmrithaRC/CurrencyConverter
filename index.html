@@ -41,13 +41,13 @@
 			</div>		
 		</div>
 		<div class="row disclaimer-row">
-			<a href="" data-ng-click="showDisclaimerInfo(true)" class="elem-right">Disclaimer</a>
+			<a href="" data-ng-click="showDisclaimerInfo()" class="elem-right">Disclaimer</a>
 		</div>
 		<div class="row alert-info" ng-show="disclaimerInfo">
 			<div class="disclaimer-info">Conversion rates are subject to change based on Fixer API:<br/>
 			 1 {{initCurr}} = {{equivAmt}} {{convCurr}} </div>
-			 <div  class="close " data-ng-click="showDisclaimerInfo(false)"><b></b>
-			 </div>
+			<!-- <div  class="close " data-ng-click="showDisclaimerInfo(false)"><b></b>
+			 </div>-->
 
 		</div>
 		</form>

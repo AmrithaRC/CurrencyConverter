@@ -11,6 +11,17 @@
 	h2{
 		font-size: 20px;
 	}
+	input:focus::-webkit-input-placeholder{
+    	color: transparent!important;
+	}
+	
+	input:focus::-moz-placeholder{
+	    color: transparent!important;
+	}
+	
+	input:focus:-moz-placeholder{
+	    color: transparent!important;
+	}
 	.alert-info{
 		color: #31708f !important;
    		background-color: #d9edf7;

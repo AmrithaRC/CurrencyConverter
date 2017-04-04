@@ -59,8 +59,8 @@ curConvApp.controller("curConvController",['$scope','$rootScope','dataServices',
 		}
 		$scope.convertAmt();
 	};
-	$scope.showDisclaimerInfo = function(flag){
-		$scope.disclaimerInfo = flag;
+	$scope.showDisclaimerInfo = function(){
+		$scope.disclaimerInfo = !$scope.disclaimerInfo;
 	}
 	//Funciton is called on pageload
 	$scope.getCurrencyRates();
