@@ -27,12 +27,12 @@ curConvApp.factory('dataServices', ['$http',
                         success(data);
                     }
                     else {
-                       error(data);
+                       error(data,status);
                     }
                     return false;
                 })
                 .error(function (data, status, headers, config) {
-                    error(data);
+                    error(data,status);
                     return false;
                 });
         };

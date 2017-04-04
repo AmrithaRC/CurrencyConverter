@@ -9,6 +9,8 @@ curConvApp.controller("curConvController",['$scope','$rootScope','dataServices',
 	$scope.errorMsg="";
 	$scope.disclaimerInfo = false;
 	$scope.equivAmt;
+	$scope.discAmt= 1;
+	$scope.eqConstant = "=";
 	//Function called on change event of enter value/ selecting a currency type
 	$scope.convertAmt = function(){
 		var amt = $scope.initAmt;
@@ -43,12 +45,12 @@ curConvApp.controller("curConvController",['$scope','$rootScope','dataServices',
 		dataServices.getCurrencyRates($scope.initCurr,symbols,$scope.successCurrencyRatesFunc,$scope.errorFunc);
 	};
 	//Function called to set error message if any error occurs
-	 $scope.errorFunc = function(result){
-		 if(result.header.status == 400){
+	 $scope.errorFunc = function(result,status){
+		 if(status == 400){
 			 $scope.errorMsg = result.header.message;
 	   	  }
 	   	  else{
-	   		 $scope.errorMsg = "Application encountered a problem";
+	   		 $scope.errorMsg = "Application encountered a problem. Fixer Rate API is down";
 	   	  }
 		 $scope.showErrorMsg = true;
 	 };

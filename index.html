@@ -15,7 +15,7 @@
 	<h2>Currency Converter</h2>
 	<form name="curForm" >
 		<div class="row" data-ng-show="showErrorMsg">
-			<span class="error-msg">{{errorMsg}}</span>
+			<span class="error-msg" data-ng-bind="errorMsg"></span>
 		</div>
 		<div class="row">		
 			<div class="label">Type in amount and select currency:</div>
@@ -42,12 +42,8 @@
 		<div class="row disclaimer-row">
 			<a href="" data-ng-click="showDisclaimerInfo()" class="elem-right">Disclaimer</a>
 		</div>
-		<div class="row alert-info" ng-show="disclaimerInfo">
-			<div class="disclaimer-info">Conversion rates are subject to change based on Fixer API:<br/>
-			 1 {{initCurr}} = {{equivAmt}} {{convCurr}} </div>
+		<div class="row alert-info" data-ng-show="disclaimerInfo">
+			<div class="disclaimer-info" data-ng-if="equivAmt != ''">Conversion rates are subject to change based on Fixer API:<br/>
+			<span data-ng-bind="discAmt"></span><span data-ng-bind="initCurr"></span> <span data-ng-bind="eqConstant"></span><span data-ng-bind="equivAmt"></span><span data-ng-bind="convCurr"></span></div>
 		</div>
-		</form>
-	</div>
-</body>
-
 </html>
