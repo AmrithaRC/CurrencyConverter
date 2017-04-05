@@ -58,8 +58,11 @@ curConvApp.controller("curConvController",['$scope','$rootScope','dataServices',
 	$scope.successCurrencyRatesFunc = function(result){
 		if(typeof(result) != undefined && result!=null && result.hasOwnProperty("rates")){
 			$scope.currencyRatesList = result.rates;
+			$scope.convertAmt();
 		}
-		$scope.convertAmt();
+		else{
+			$scope.errorFunc("","500");
+		}
 	};
 	$scope.showDisclaimerInfo = function(){
 		$scope.disclaimerInfo = !$scope.disclaimerInfo;
