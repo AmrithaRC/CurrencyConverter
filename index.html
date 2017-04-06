@@ -14,7 +14,6 @@
 <body>
 	<div data-ng-controller="curConvController" id="mainFormDiv" class="main-div">
 	<h2>Currency Converter</h2>
-	<form name="curForm" >
 		<div class="row alert-error" data-ng-show="showErrorMsg">
 			<span class="error-msg" data-ng-bind="errorMsg">Application encountered a problem. Fixer Rate API is down</span>
 		</div>
@@ -47,4 +46,5 @@
 			<div class="disclaimer-info" data-ng-if="equivAmt != ''">Conversion rates are subject to change based on Fixer API:<br/>
 			<span data-ng-bind="discAmt"></span><span data-ng-bind="initCurr"></span> <span data-ng-bind="eqConstant"></span><span data-ng-bind="equivAmt"></span><span data-ng-bind="convCurr"></span></div>
 		</div>
+	 </div>
 </html>
