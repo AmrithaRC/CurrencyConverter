@@ -1,3 +1,4 @@
+//select directive triggers change event on keyup
 curConvApp.directive("select", function() {
     return {
       restrict: "E",

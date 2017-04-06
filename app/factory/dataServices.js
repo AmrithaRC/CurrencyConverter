@@ -6,7 +6,8 @@ curConvApp.factory('dataServices', ['$http',
         dataServicesInstance.ConvertCurrency_Url ="http://api.fixer.io/latest";
         
         
-        //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-	        
+        //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-	
+        //method called to return currency rates
         dataServicesInstance.getCurrencyRates = function (base,symbols,success,error) {
 			var url = dataServicesInstance.ConvertCurrency_Url +"?base="+base+"&symbols="+symbols;
             dataServicesInstance.Get(url, success,error);
@@ -15,7 +16,7 @@ curConvApp.factory('dataServices', ['$http',
         
 
         //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-	        
-        /**  Call GET service to load data **/
+        //Call GET service to load data
         dataServicesInstance.Get = function (_url, success,error) {
             $http({
                 method: 'GET',
