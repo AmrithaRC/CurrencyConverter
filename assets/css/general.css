@@ -42,7 +42,6 @@
 	}
 	.disclaimer-info{
 		float:left;
-		width: 81%;
    		padding: 5px
 	}
 		
@@ -100,10 +99,7 @@
 		}
 		.select-field{
 			margin-top:10px;
-		}
-		.disclaimer-info {
-		    width: 70%;
-		}
+		}		
 	}
 	
 		
