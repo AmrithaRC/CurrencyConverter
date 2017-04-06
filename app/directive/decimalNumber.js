@@ -16,7 +16,7 @@
               
             if(!angular.isUndefined(decimalCheck[1])) {
                 decimalCheck[1] = decimalCheck[1].slice(0,2);
-                modifiedVal =decimalCheck[0] + '.' + decimalCheck[1];
+                modifiedVal = decimalCheck[0] + '.' + decimalCheck[1];
             }
 
             if (val !== modifiedVal) {
@@ -29,6 +29,10 @@
           element.bind('keypress', function(event) {
             if(event.keyCode === 32) {
               event.preventDefault();
+            }
+            var oldValue = this.value;
+            if(oldValue.indexOf('.') >= 0 && event.charCode == 46){
+                 event.preventDefault();
             }
           });
         }
