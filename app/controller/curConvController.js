@@ -15,7 +15,12 @@ curConvApp.controller("curConvController",['$scope','$rootScope','dataServices',
 	$scope.convertAmt = function(){
 		var amt = $scope.initAmt;
 		if($scope.initCurr === $scope.convCurr){
-			$scope.convAmt = amt;
+			if(typeof(amt) === undefined || amt===null  ||  amt==="" || amt==="0.00" || amt==="0" || amt==="0.0"){
+				$scope.convAmt = "0.00";
+			}
+			else{
+				$scope.convAmt = amt;
+			}
 			$scope.equivAmt =  1;
 			return;
 		}
