@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html id="ng-app"  data-ng-app="currencyConverterApp">
+<html id="ng-app">
 <head>
 	<title>Currency Converter</title>
 	<meta name="viewport" content="width=device-width">
@@ -41,11 +41,12 @@
 			<span data-ng-bind="discAmt"></span><span data-ng-bind="initCurr"></span> <span data-ng-bind="eqConstant"></span><span data-ng-bind="equivAmt"></span><span data-ng-bind="convCurr"></span></div>
 		</div>
 	 </div>
-	<script type="text/javascript" src="assets/js/angular.min.js"></script>	
-	<script type="text/javascript" src="app/app.js"></script>
-	<script type="text/javascript" src="app/controller/curConvController.js"></script>	
-	<script type="text/javascript" src="app/factory/dataServices.js"></script>	
-	<script type="text/javascript" src="app/directive/decimalNumber.js"></script>
-	<script type="text/javascript" src="app/directive/selectEvent.js"></script>
+<!-- 	<script type="text/javascript" src="assets/js/angular.min.js"></script>	 -->
+	<script data-main="app/main" src="assets/js/require.js"></script>
+<!-- 	<script type="text/javascript" src="app/app.js"></script> -->
+<!-- 	<script type="text/javascript" src="app/controller/curConvController.js"></script>	 -->
+<!-- 	<script type="text/javascript" src="app/factory/dataServices.js"></script>	 -->
+<!-- 	<script type="text/javascript" src="app/directive/decimalNumber.js"></script> -->
+<!-- 	<script type="text/javascript" src="app/directive/selectEvent.js"></script> -->
 </body>
 </html>
