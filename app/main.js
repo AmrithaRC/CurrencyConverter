@@ -1,7 +1,13 @@
 require.config({
-	baseUrl:'/app',
+	baseUrl:'app',
 	paths: {
-		angular:'assets/js/angular'
+		angular:'../assets/js/angular',
+		app:'app',
+		factory:'factory/dataServices',		
+		decimalNumber:'directive/decimalNumber',
+		selectEvent:'directive/selectEvent',
+		curConvController:'controller/curConvController'
+		
 	},
 	shim: {
 		"angular": {
@@ -9,6 +15,6 @@ require.config({
 		}
 	}
 });
-require(['app','factory/dataServices','directive/decimalNumber','directive/selectEvent','controller/curConvController'],function(){
+require(['angular','app','factory','decimalNumber','selectEvent','curConvController'],function(angular){
 	angular.bootstrap(document,['currencyConverterApp']);
 });

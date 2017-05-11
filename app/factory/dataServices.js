@@ -1,5 +1,5 @@
 //DataServices Factory includes the http service calls
-define([],function(){
+define(['app'],function(curConvApp){
 	'use strict';
 curConvApp.factory('dataServices', ['$http',
     function ($http) {

@@ -1,6 +1,6 @@
 //curConvController includes the logic for the currency Converter form 
 
-define(['factory/dataServices'],function(){
+define(['app','factory'],function(curConvApp){
 	'use strict';
 curConvApp.controller("curConvController",['$scope','$rootScope','dataServices',function($scope,$rootScope,dataServices){
 	$scope.convAmt = "0.00";

@@ -1,5 +1,5 @@
 //select directive triggers change event on keyup
-define([],function(){
+define(['app'],function(curConvApp){
 	'use strict';
 curConvApp.directive("select", function() {
     return {

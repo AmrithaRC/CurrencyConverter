@@ -1,2 +1,7 @@
 //Creating the Application Module
-var curConvApp = angular.module('currencyConverterApp',[])
+define(['angular'],function(){
+	'use strict';
+	var curConvApp = angular.module('currencyConverterApp',[]);
+	return curConvApp;
+
+});
