@@ -1,4 +1,6 @@
 //select directive triggers change event on keyup
+define([],function(){
+	'use strict';
 curConvApp.directive("select", function() {
     return {
       restrict: "E",
@@ -13,4 +15,5 @@ curConvApp.directive("select", function() {
         })
       }
     }
-  })
+  });
+});

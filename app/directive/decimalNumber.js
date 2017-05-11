@@ -1,4 +1,6 @@
 // decimalNumber is a directive that restricts the value to number and two decimal places
+define([],function(){
+	'use strict';
 curConvApp.directive('decimalNumber', function() {
       return {
         require: '?ngModel',
@@ -42,3 +44,5 @@ curConvApp.directive('decimalNumber', function() {
         }
       };
     });
+
+});
