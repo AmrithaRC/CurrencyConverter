@@ -1,7 +1,7 @@
 //curConvController includes the logic for the currency Converter form 
 
-define(['app','factory'],function(curConvApp){
 	'use strict';
+	require('../factory/dataServices.js');
 curConvApp.controller("curConvController",['$scope','$rootScope','dataServices',function($scope,$rootScope,dataServices){
 	$scope.convAmt = "0.00";
 	$scope.initAmt = "";
@@ -79,4 +79,3 @@ curConvApp.controller("curConvController",['$scope','$rootScope','dataServices',
 	$scope.getCurrencyRates();
 }]);
 
-});
