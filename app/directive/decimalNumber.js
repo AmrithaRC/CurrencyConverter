@@ -1,7 +1,7 @@
 // decimalNumber is a directive that restricts the value to number and two decimal places
 	'use strict';
-
-curConvApp.directive('decimalNumber', function() {
+function decimalNumber(){
+//curConvApp.directive('decimalNumber', function() {
       return {
         require: '?ngModel',
         link: function(scope, element, attrs, ngModelCtrl) {
@@ -43,5 +43,7 @@ curConvApp.directive('decimalNumber', function() {
           });
         }
       };
-    });
+}
+ //   });
 
+module.exports = decimalNumber;

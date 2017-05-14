@@ -4,8 +4,8 @@
 	require('angular');	
 	var curConvApp = angular.module('currencyConverterApp',[]);
 	
-	require('./directive/decimalNumber');
-	require('./directive/selectEvent');
-	require('./controller/curConvController');
-	//require('./main');
+	require('./directive');
+	require('./factory');
+	require('./controller');
+	require('./main');
 

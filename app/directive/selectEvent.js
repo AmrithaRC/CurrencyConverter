@@ -1,7 +1,7 @@
 //select directive triggers change event on keyup
 	'use strict';
-
-curConvApp.directive("select", function() {
+function selectEvent(){
+//curConvApp.directive("select", function() {
     return {
       restrict: "E",
       require: "?ngModel",
@@ -15,4 +15,6 @@ curConvApp.directive("select", function() {
         })
       }
     }
-  });
+}
+  //});
+module.exports = selectEvent;

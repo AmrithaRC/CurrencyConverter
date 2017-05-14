@@ -42,15 +42,15 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
 	module.exports = __webpack_require__(2);
 
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	//Creating the Application Module
 
@@ -59,23 +59,23 @@
 		var curConvApp = angular.module('currencyConverterApp',[]);
 		
 		__webpack_require__(4);
-		__webpack_require__(5);
-		__webpack_require__(6);
-		//require('./main');
+		__webpack_require__(7);
+		__webpack_require__(9);
+		__webpack_require__(11);
 
 
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	__webpack_require__(3);
 	module.exports = angular;
 
 
-/***/ },
+/***/ }),
 /* 3 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * @license AngularJS v1.6.4
@@ -33450,14 +33450,25 @@
 
 	!window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
-/***/ },
+/***/ }),
 /* 4 */
-/***/ function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	var angular = __webpack_require__(2);
+	angular.module('currencyConverterApp').
+	directive('decimalNumber', __webpack_require__(5));
+	angular.module('currencyConverterApp').
+	directive('select', __webpack_require__(6));
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
 
 	// decimalNumber is a directive that restricts the value to number and two decimal places
 		'use strict';
-
-	curConvApp.directive('decimalNumber', function() {
+	function decimalNumber(){
+	//curConvApp.directive('decimalNumber', function() {
 	      return {
 	        require: '?ngModel',
 	        link: function(scope, element, attrs, ngModelCtrl) {
@@ -33499,18 +33510,19 @@
 	          });
 	        }
 	      };
-	    });
+	}
+	 //   });
 
+	module.exports = decimalNumber;
 
-
-/***/ },
-/* 5 */
-/***/ function(module, exports) {
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
 
 	//select directive triggers change event on keyup
 		'use strict';
-
-	curConvApp.directive("select", function() {
+	function selectEvent(){
+	//curConvApp.directive("select", function() {
 	    return {
 	      restrict: "E",
 	      require: "?ngModel",
@@ -33524,18 +33536,106 @@
 	        })
 	      }
 	    }
-	  });
+	}
+	  //});
+	module.exports = selectEvent;
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	var angular = __webpack_require__(2);
+	angular.module('currencyConverterApp').
+	factory('dataServices', __webpack_require__(8));
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+	//DataServices Factory includes the http service calls
+		'use strict';
+		dataServices.$inject = ['$http'];	
+		function dataServices($http){
+	//curConvApp.factory('dataServices', ['$http',
+	    //function ($http) {
+	        var dataServicesInstance = {};
+	       
+	        dataServicesInstance.ConvertCurrency_Url ="http://api.fixer.io/latest";
+	        
+	        
+	        //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-	
+	        //method called to return currency rates
+	        dataServicesInstance.getCurrencyRates = function (base,symbols,success,error) {
+				var url = dataServicesInstance.ConvertCurrency_Url +"?base="+base+"&symbols="+symbols;
+	            dataServicesInstance.Get(url, success,error);
+	        };
+	        //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-	        
+	        
+
+	        //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-	        
+	        //Call GET service to load data
+	        dataServicesInstance.Get = function (_url, success,error) {
+	            $http({
+	                method: 'GET',
+	                url: _url,
+	                cache: false
+	            }).then(function successCallback(response) {
+			           if(response.status === 200) {
+			              success(response.data);
+			          }
+			          else {
+			             error(response.data,response.status);
+			          }
+	              }, function errorCallback(response) {
+	            	  	error(response.data,response.status);
+	                	return false;
+	              });
+	            
+	//            .success(function (data, status, headers, config) {
+	//                    if (status === 200) {
+	//                        success(data);
+	//                    }
+	//                    else {
+	//                       error(data,status);
+	//                    }
+	//                    return false;
+	//                }).error(function (data, status, headers, config) {
+	//                    error(data,status);
+	//                    return false;
+	//                });
+	        };
+	      
+	        return dataServicesInstance;
+	    }
+
+	//}
+	//]);
 
 
-/***/ },
-/* 6 */
-/***/ function(module, exports, __webpack_require__) {
+	module.exports = dataServices;
+
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	var angular = __webpack_require__(2);
+	angular.module('currencyConverterApp').
+	controller('curConvController', __webpack_require__(10));
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
 
 	//curConvController includes the logic for the currency Converter form 
 
 		'use strict';
-		__webpack_require__(7);
-	curConvApp.controller("curConvController",['$scope','$rootScope','dataServices',function($scope,$rootScope,dataServices){
+		//require('../factory/dataServices.js');
+		curConvController.$inject = ['$scope','$rootScope','dataServices'];	
+		function curConvController($scope,$rootScope,dataServices){
+	//curConvApp.controller("curConvController",['$scope','$rootScope','dataServices',function($scope,$rootScope,dataServices){
 		$scope.convAmt = "0.00";
 		$scope.initAmt = "";
 		$scope.currencyRatesList;
@@ -33610,60 +33710,21 @@
 		}
 		//Funciton is called on pageload
 		$scope.getCurrencyRates();
-	}]);
+		
+		};
+	//}]);
+
+		module.exports = curConvController;
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	__webpack_require__(2);
+	//var appModule = require('/app');
+	angular.bootstrap(document,['currencyConverterApp']);
 
 
-
-/***/ },
-/* 7 */
-/***/ function(module, exports) {
-
-	//DataServices Factory includes the http service calls
-		'use strict';
-
-	curConvApp.factory('dataServices', ['$http',
-	    function ($http) {
-	        var dataServicesInstance = {};
-	       
-	        dataServicesInstance.ConvertCurrency_Url ="http://api.fixer.io/latest";
-	        
-	        
-	        //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-	
-	        //method called to return currency rates
-	        dataServicesInstance.getCurrencyRates = function (base,symbols,success,error) {
-				var url = dataServicesInstance.ConvertCurrency_Url +"?base="+base+"&symbols="+symbols;
-	            dataServicesInstance.Get(url, success,error);
-	        };
-	        //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-	        
-	        
-
-	        //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-	        
-	        //Call GET service to load data
-	        dataServicesInstance.Get = function (_url, success,error) {
-	            $http({
-	                method: 'GET',
-	                url: _url,
-	                cache: false
-	            })
-	                .success(function (data, status, headers, config) {
-	                    if (status === 200) {
-	                        success(data);
-	                    }
-	                    else {
-	                       error(data,status);
-	                    }
-	                    return false;
-	                })
-	                .error(function (data, status, headers, config) {
-	                    error(data,status);
-	                    return false;
-	                });
-	        };
-	      
-	        return dataServicesInstance;
-	    }
-	]);
-
-
-/***/ }
+/***/ })
 /******/ ]);
