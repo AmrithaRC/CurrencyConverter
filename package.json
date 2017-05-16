@@ -1,28 +1,30 @@
 {
   "name": "currencyconverter",
   "version": "1.0.0",
-  "description": "currency converter with webpack example",
+  "description": "Angular2 Example",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bundle": "webpack"
+    "start": "concurrently \"npm run watch\" \"npm run serve\"",
+    "watch": "tsc -w",
+    "serve": "lite-server"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AmrithaRC/CurrencyConverter.git"
-  },
-  "author": "Amritha",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AmrithaRC/CurrencyConverter/issues"
-  },
-  "homepage": "https://github.com/AmrithaRC/CurrencyConverter#readme",
   "dependencies": {
-    "angular": "^1.5.0"
+    "@angular/common": "^4.1.2",
+    "@angular/compiler": "^4.1.2",
+    "@angular/core": "^4.1.2",
+    "@angular/forms": "^4.1.2",
+    "@angular/http": "^4.1.2",
+    "@angular/platform-browser": "^4.1.2",
+    "rxjs": "^5.4.0",
+    "systemjs": "^0.20.12",
+    "zone.js": "^0.8.10"
   },
   "devDependencies": {
-    "angular": "^1.6.4",
-    "webpack": "^1.15.0",
-    "webpack-dev-server": "^2.4.5"
+    "concurrently": "^3.4.0",
+    "lite-server": "^2.3.0",
+    "typescript": "^2.3.2"
   }
 }
