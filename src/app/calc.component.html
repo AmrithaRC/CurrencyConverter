@@ -1,0 +1,37 @@
+<div id="mainFormDiv" class="main-div">
+	<h2>Currency Converter</h2>
+		<div class="row alert-error" *ngIf="showErrorMsg">
+			<span class="error-msg" [(ngModel)]="errorMsg">Application encountered a problem. Fixer Rate API is down</span>
+		</div>
+		<div class="row">		
+			<div class="label">Type in amount and select currency:</div>
+			<div>
+				<input type="text" class="input-field" placeholder="0.00" name="initAmt" [(ngModel)]="initAmt" decimal-number 
+				(ngModelChange)="convertAmt()" autofocus/>
+				<select id="dropdown1" class="select-field" [(ngModel)]="initCurr" (ngModelChange)="getCurrencyRates()">
+					<option  *ngFor="let cur in currencies" value="CAD">{{cur.label}}</option>
+					<!--<option value="CAD">CAD</option>
+					<option value="USD">USD</option>
+					<option value="EUR">EUR</option>-->
+				</select><br/>
+			</div>		
+		</div>
+		<div class="row">
+			<div class="label">Converted Amount:</div>
+			<div>
+				<input type="text" class="input-field" [(ngModel)]="convAmt" disabled>
+				<select id="dropdown1" class="select-field"  [(ngModel)]="convCurr" (ngModelChange)="convertAmt()">
+					<option value="CAD">CAD</option>
+					<option value="USD">USD</option>
+					<option value="EUR">EUR</option>
+				</select>
+			</div>		
+		</div>
+		<!-- <div class="row disclaimer-row">
+			<a href="" data-ng-click="showDisclaimerInfo()" class="elem-right">Disclaimer</a>
+		</div>
+		<div class="row alert-info" data-ng-show="disclaimerInfo">
+			<div class="disclaimer-info" data-ng-if="equivAmt != ''">Conversion rates are subject to change based on Fixer API:<br/>
+			<span data-ng-bind="discAmt"></span><span data-ng-bind="initCurr"></span> <span data-ng-bind="eqConstant"></span><span data-ng-bind="equivAmt"></span><span data-ng-bind="convCurr"></span></div>
+		</div>-->
+ </div>
